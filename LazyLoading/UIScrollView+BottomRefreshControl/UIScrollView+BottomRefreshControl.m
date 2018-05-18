@@ -1,35 +1,31 @@
 //
 //  UITableView+BottomRefreshControl.m
-//  BottomRefreshControl
+//  LazyLoading
 //
-//  Created by Nikolay Vlasov on 14.01.14.
-//  Copyright (c) 2014 Nikolay Vlasov. All rights reserved.
+//  Created by Jasty Saran on 5/18/18.
+//  Copyright © 2018 Jasty Saran. All rights reserved.
 //
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 #import "UIScrollView+BottomRefreshControl.h"
-
 #import <objc/runtime.h>
 #import <objc/message.h>
-
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 @implementation NSObject (Swizzling)
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 + (void)brc_swizzleMethod:(SEL)origSelector withMethod:(SEL)newSelector {
     
     Method origMethod = class_getInstanceMethod(self, origSelector);
     Method newMethod = class_getInstanceMethod(self, newSelector);
-    
     if(class_addMethod(self, origSelector, method_getImplementation(newMethod), method_getTypeEncoding(newMethod)))
         class_replaceMethod(self, newSelector, method_getImplementation(origMethod), method_getTypeEncoding(origMethod));
     else
         method_exchangeImplementations(origMethod, newMethod);
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 @end
-
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 @implementation UIView (FindSubview)
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (UIView *)brc_findFirstSubviewPassingTest:(BOOL (^)(UIView *subview))predicate {
 
     if (predicate(self))
@@ -44,26 +40,21 @@
 
     return 0;
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 @end
-
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 NSString *const kRefrehControllerEndRefreshingNotification = @"RefrehControllerEndRefreshing";
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 const CGFloat kDefaultTriggerRefreshVerticalOffset = 120.;
-
-
 static char kBRCManualEndRefreshingKey;
 static char kTriggerVerticalOffsetKey;
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 @implementation UIRefreshControl (BottomRefreshControl)
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 + (void)load {
-    
     [self brc_swizzleMethod:@selector(endRefreshing) withMethod:@selector(brc_endRefreshing)];
 }
-
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (void)brc_endRefreshing {
     
     if (self.brc_manualEndRefreshing)
@@ -71,68 +62,59 @@ static char kTriggerVerticalOffsetKey;
     else
         [self brc_endRefreshing];
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (void)setBrc_manualEndRefreshing:(BOOL)manual {
 
     objc_setAssociatedObject(self, &kBRCManualEndRefreshingKey, @(manual), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (BOOL)brc_manualEndRefreshing {
     
     NSNumber *manual = objc_getAssociatedObject(self, &kBRCManualEndRefreshingKey);
     return (manual) ? [manual boolValue] : NO;
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (void)setTriggerVerticalOffset:(CGFloat)offset {
     
     assert(offset > 0);
     objc_setAssociatedObject(self, &kTriggerVerticalOffsetKey, @(offset), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (CGFloat)triggerVerticalOffset {
     
     NSNumber *offset = objc_getAssociatedObject(self, &kTriggerVerticalOffsetKey);
     return (offset) ? [offset floatValue] : kDefaultTriggerRefreshVerticalOffset;
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (UILabel *)brc_titleLabel {
     
     return (UILabel *)[self brc_findFirstSubviewPassingTest:^BOOL(UIView *subview) {
         return ([subview isKindOfClass:[UILabel class]] && [((UILabel *)subview).attributedText isEqualToAttributedString:self.attributedTitle]);
     }];
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 @end
-
-
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 @interface BRCContext : NSObject
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 @property (nonatomic) BOOL refreshed;
 @property (nonatomic) BOOL adjustBottomInset;
 @property (nonatomic) BOOL wasTracking;
 @property (nonatomic) NSDate *beginRefreshingDate;
-
 @property (nonatomic, weak) UITableView *fakeTableView;
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 @end
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 @implementation BRCContext
 
 @end
-
-
-
-
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 static char kBottomRefreshControlKey;
 static char kBRCContextKey;
-
 const CGFloat kMinRefershTime = 0.5;
-
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 @implementation UIScrollView (BottomRefreshControl)
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 + (void)load {
     
     [self brc_swizzleMethod:@selector(didMoveToSuperview) withMethod:@selector(brc_didMoveToSuperview)];
@@ -140,7 +122,7 @@ const CGFloat kMinRefershTime = 0.5;
     [self brc_swizzleMethod:@selector(contentInset) withMethod:@selector(brc_contentInset)];
     [self brc_swizzleMethod:@selector(setContentOffset:) withMethod:@selector(brc_setContentOffset:)];
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (void)brc_didMoveToSuperview {
     
     [self brc_didMoveToSuperview];
@@ -153,7 +135,7 @@ const CGFloat kMinRefershTime = 0.5;
     else
         [self.brc_context.fakeTableView removeFromSuperview];
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (void)brc_setContentInset:(UIEdgeInsets)insets {
     
     if (self.brc_adjustBottomInset)
@@ -163,7 +145,7 @@ const CGFloat kMinRefershTime = 0.5;
     
     [self setNeedsUpdateConstraints];
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (UIEdgeInsets)brc_contentInset {
     
     UIEdgeInsets insets = [self brc_contentInset];
@@ -173,7 +155,7 @@ const CGFloat kMinRefershTime = 0.5;
     
     return insets;
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (void)brc_setContentOffset:(CGPoint)contentOffset {
     
     [self brc_setContentOffset:contentOffset];
@@ -196,8 +178,8 @@ const CGFloat kMinRefershTime = 0.5;
     else
         self.brc_context.refreshed = NO;
 }
-
-- (void)brc_checkRefreshingTimeAndPerformBlock:(void (^)())block {
+//---------------**------**---------------------**-------------------**------------------**-----------**
+- (void)brc_checkRefreshingTimeAndPerformBlock:(void (^)(void))block {
 
     NSDate *date = self.brc_context.beginRefreshingDate;
     
@@ -212,7 +194,7 @@ const CGFloat kMinRefershTime = 0.5;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((kMinRefershTime-timeSinceLastRefresh) * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
     }
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (void)brc_insertFakeTableView {
 
     UITableView *tableView = self.brc_context.fakeTableView;
@@ -230,7 +212,7 @@ const CGFloat kMinRefershTime = 0.5;
     [tableView addConstraint:height];
     [self.superview addConstraints:@[left, right, bottom]];
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (void)updateConstraints {
 
     NSUInteger idx = [self.superview.constraints indexOfObjectPassingTest:^BOOL(__kindof NSLayoutConstraint * _Nonnull constraint, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -246,7 +228,7 @@ const CGFloat kMinRefershTime = 0.5;
 
     [super updateConstraints];
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (void)brc_SetAdjustBottomInset:(BOOL)adjust animated:(BOOL)animated {
     
     UIEdgeInsets contentInset = self.contentInset;
@@ -260,12 +242,12 @@ const CGFloat kMinRefershTime = 0.5;
     if (animated)
         [UIView commitAnimations];
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (BOOL)brc_adjustBottomInset {
     
     return self.brc_context.adjustBottomInset;
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (void)setBottomRefreshControl:(UIRefreshControl *)refreshControl {
     
     if (self.bottomRefreshControl) {
@@ -309,22 +291,22 @@ const CGFloat kMinRefershTime = 0.5;
     objc_setAssociatedObject(self, &kBottomRefreshControlKey, refreshControl, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     [self didChangeValueForKey:@"bottomRefreshControl"];
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (UIRefreshControl *)bottomRefreshControl {
     
     return objc_getAssociatedObject(self, &kBottomRefreshControlKey);
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (void)setBrc_context:(BRCContext *)context {
     
     objc_setAssociatedObject(self, &kBRCContextKey, context, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (BRCContext *)brc_context {
     
     return objc_getAssociatedObject(self, &kBRCContextKey);
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (void)handleBottomBounceOffset:(CGFloat)offset {
     
     CGPoint contentOffset = self.brc_context.fakeTableView.contentOffset;
@@ -341,7 +323,7 @@ const CGFloat kMinRefershTime = 0.5;
             [self brc_startRefresh];
     }
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (void)brc_didEndRefreshing {
     
     [self brc_checkRefreshingTimeAndPerformBlock:^{
@@ -349,7 +331,7 @@ const CGFloat kMinRefershTime = 0.5;
         [self brc_stopRefresh];
     }];
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (void)brc_startRefresh {
 
     self.brc_context.beginRefreshingDate = [NSDate date];
@@ -360,7 +342,7 @@ const CGFloat kMinRefershTime = 0.5;
     if (!self.tracking && !self.brc_adjustBottomInset)
         [self brc_SetAdjustBottomInset:YES animated:YES];
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (void)brc_stopRefresh {
     
     self.brc_context.wasTracking = self.tracking;
@@ -374,7 +356,7 @@ const CGFloat kMinRefershTime = 0.5;
     
     self.brc_context.refreshed = self.tracking;
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (void)didEndTracking {
     
     if (self.bottomRefreshControl.refreshing && !self.brc_adjustBottomInset)
@@ -383,20 +365,16 @@ const CGFloat kMinRefershTime = 0.5;
     if (self.brc_adjustBottomInset && !self.bottomRefreshControl.refreshing)
         [self brc_SetAdjustBottomInset:NO animated:YES];
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 @end
-
-
-
-
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 @implementation UITableView (BottomRefreshControl)
 
 + (void)load {
     
     [self brc_swizzleMethod:@selector(reloadData) withMethod:@selector(brc_reloadData)];
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (void)brc_reloadData {
     
     if (!self.brc_context)
@@ -406,20 +384,16 @@ const CGFloat kMinRefershTime = 0.5;
             [self brc_reloadData];
         }];
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 @end
-
-
-
-
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 @implementation UICollectionView (BottomRefreshControl)
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 + (void)load {
     
     [self brc_swizzleMethod:@selector(reloadData) withMethod:@selector(brc_reloadData)];
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 - (void)brc_reloadData {
     
     if (!self.brc_context)
@@ -429,5 +403,6 @@ const CGFloat kMinRefershTime = 0.5;
             [self brc_reloadData];
         }];
 }
-
+//---------------**------**---------------------**-------------------**------------------**-----------**
 @end
+//---------------**------**---------------------**-------------------**------------------**-----------**

@@ -14,6 +14,11 @@
 		480433D220AE9C8100DEA118 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 480433D020AE9C8100DEA118 /* LaunchScreen.storyboard */; };
 		480433DD20AE9C8100DEA118 /* LazyLoadingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480433DC20AE9C8100DEA118 /* LazyLoadingTests.swift */; };
 		480433E820AE9C8100DEA118 /* LazyLoadingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480433E720AE9C8100DEA118 /* LazyLoadingUITests.swift */; };
+		480433F820AE9F7A00DEA118 /* UIScrollView+BottomRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 480433F620AE9F7A00DEA118 /* UIScrollView+BottomRefreshControl.m */; };
+		480433FB20AE9F8900DEA118 /* UIView+TKGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 480433FA20AE9F8900DEA118 /* UIView+TKGeometry.m */; };
+		D5215C4400F993E9A5B86358 /* Pods_LazyLoading.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 494726DEE47D09E25E247A36 /* Pods_LazyLoading.framework */; };
+		D7B5B2E12BD6B14A9BCFA5F1 /* Pods_LazyLoadingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FE2572DAB86A054A305EA1 /* Pods_LazyLoadingTests.framework */; };
+		E792D7DAB56E5B509E85D87A /* Pods_LazyLoadingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BD86648623418D5514A4D9 /* Pods_LazyLoadingUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17FE2572DAB86A054A305EA1 /* Pods_LazyLoadingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LazyLoadingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35BD86648623418D5514A4D9 /* Pods_LazyLoadingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LazyLoadingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		480433C420AE9C8000DEA118 /* LazyLoading.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LazyLoading.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		480433C720AE9C8000DEA118 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		480433C920AE9C8000DEA118 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +54,18 @@
 		480433E320AE9C8100DEA118 /* LazyLoadingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LazyLoadingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		480433E720AE9C8100DEA118 /* LazyLoadingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyLoadingUITests.swift; sourceTree = "<group>"; };
 		480433E920AE9C8100DEA118 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		480433F520AE9F7A00DEA118 /* LazyLoading-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LazyLoading-Bridging-Header.h"; sourceTree = "<group>"; };
+		480433F620AE9F7A00DEA118 /* UIScrollView+BottomRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+BottomRefreshControl.m"; sourceTree = "<group>"; };
+		480433F720AE9F7A00DEA118 /* UIScrollView+BottomRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+BottomRefreshControl.h"; sourceTree = "<group>"; };
+		480433F920AE9F8900DEA118 /* UIView+TKGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TKGeometry.h"; sourceTree = "<group>"; };
+		480433FA20AE9F8900DEA118 /* UIView+TKGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TKGeometry.m"; sourceTree = "<group>"; };
+		494726DEE47D09E25E247A36 /* Pods_LazyLoading.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LazyLoading.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		78239CBBDF9E2AC4E86E5BEE /* Pods-LazyLoadingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyLoadingUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LazyLoadingUITests/Pods-LazyLoadingUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		82A166ABA642505095BF3678 /* Pods-LazyLoadingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyLoadingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LazyLoadingTests/Pods-LazyLoadingTests.release.xcconfig"; sourceTree = "<group>"; };
+		B082B7B6A8770789007296C4 /* Pods-LazyLoadingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyLoadingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LazyLoadingTests/Pods-LazyLoadingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D462534F3574D88D2FEAC34B /* Pods-LazyLoadingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyLoadingUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LazyLoadingUITests/Pods-LazyLoadingUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EE4F4C86C1603C30B325418E /* Pods-LazyLoading.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyLoading.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LazyLoading/Pods-LazyLoading.debug.xcconfig"; sourceTree = "<group>"; };
+		F2B01E6CBE023269A0CBA463 /* Pods-LazyLoading.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyLoading.release.xcconfig"; path = "Pods/Target Support Files/Pods-LazyLoading/Pods-LazyLoading.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5215C4400F993E9A5B86358 /* Pods_LazyLoading.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7B5B2E12BD6B14A9BCFA5F1 /* Pods_LazyLoadingTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +89,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E792D7DAB56E5B509E85D87A /* Pods_LazyLoadingUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2266F7D449FB5BFB2FB136D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				494726DEE47D09E25E247A36 /* Pods_LazyLoading.framework */,
+				17FE2572DAB86A054A305EA1 /* Pods_LazyLoadingTests.framework */,
+				35BD86648623418D5514A4D9 /* Pods_LazyLoadingUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		480433BB20AE9C8000DEA118 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +113,8 @@
 				480433DB20AE9C8100DEA118 /* LazyLoadingTests */,
 				480433E620AE9C8100DEA118 /* LazyLoadingUITests */,
 				480433C520AE9C8000DEA118 /* Products */,
+				CB2E7F3A272CCB00BED1E7F2 /* Pods */,
+				2266F7D449FB5BFB2FB136D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +131,17 @@
 		480433C620AE9C8000DEA118 /* LazyLoading */ = {
 			isa = PBXGroup;
 			children = (
-				480433C720AE9C8000DEA118 /* AppDelegate.swift */,
-				480433C920AE9C8000DEA118 /* ViewController.swift */,
-				480433CB20AE9C8000DEA118 /* Main.storyboard */,
-				480433CE20AE9C8100DEA118 /* Assets.xcassets */,
-				480433D020AE9C8100DEA118 /* LaunchScreen.storyboard */,
+				4804340620AED08000DEA118 /* InfoPlist */,
+				4804340520AED07100DEA118 /* Assests */,
+				4804340420AED06400DEA118 /* BridgingHeader */,
+				4804340320AED04800DEA118 /* LaunchScreen */,
+				4804340220AED03300DEA118 /* Storyboard */,
+				4804340120AED01B00DEA118 /* Controller */,
+				4804340020AECFF000DEA118 /* AppDelegate */,
+				480433FF20AECCA100DEA118 /* UIScrollView+BottomRefreshControl */,
+				480433FE20AECC8700DEA118 /* UIView+TKGeometry */,
 				480433D320AE9C8100DEA118 /* Info.plist */,
+				480433F520AE9F7A00DEA118 /* LazyLoading-Bridging-Header.h */,
 			);
 			path = LazyLoading;
 			sourceTree = "<group>";
@@ -125,6 +164,92 @@
 			path = LazyLoadingUITests;
 			sourceTree = "<group>";
 		};
+		480433FE20AECC8700DEA118 /* UIView+TKGeometry */ = {
+			isa = PBXGroup;
+			children = (
+				480433F920AE9F8900DEA118 /* UIView+TKGeometry.h */,
+				480433FA20AE9F8900DEA118 /* UIView+TKGeometry.m */,
+			);
+			path = "UIView+TKGeometry";
+			sourceTree = "<group>";
+		};
+		480433FF20AECCA100DEA118 /* UIScrollView+BottomRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				480433F720AE9F7A00DEA118 /* UIScrollView+BottomRefreshControl.h */,
+				480433F620AE9F7A00DEA118 /* UIScrollView+BottomRefreshControl.m */,
+			);
+			path = "UIScrollView+BottomRefreshControl";
+			sourceTree = "<group>";
+		};
+		4804340020AECFF000DEA118 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				480433C720AE9C8000DEA118 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		4804340120AED01B00DEA118 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				480433C920AE9C8000DEA118 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4804340220AED03300DEA118 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				480433CB20AE9C8000DEA118 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		4804340320AED04800DEA118 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				480433D020AE9C8100DEA118 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		4804340420AED06400DEA118 /* BridgingHeader */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BridgingHeader;
+			sourceTree = "<group>";
+		};
+		4804340520AED07100DEA118 /* Assests */ = {
+			isa = PBXGroup;
+			children = (
+				480433CE20AE9C8100DEA118 /* Assets.xcassets */,
+			);
+			path = Assests;
+			sourceTree = "<group>";
+		};
+		4804340620AED08000DEA118 /* InfoPlist */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = InfoPlist;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		CB2E7F3A272CCB00BED1E7F2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EE4F4C86C1603C30B325418E /* Pods-LazyLoading.debug.xcconfig */,
+				F2B01E6CBE023269A0CBA463 /* Pods-LazyLoading.release.xcconfig */,
+				B082B7B6A8770789007296C4 /* Pods-LazyLoadingTests.debug.xcconfig */,
+				82A166ABA642505095BF3678 /* Pods-LazyLoadingTests.release.xcconfig */,
+				78239CBBDF9E2AC4E86E5BEE /* Pods-LazyLoadingUITests.debug.xcconfig */,
+				D462534F3574D88D2FEAC34B /* Pods-LazyLoadingUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +257,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 480433EC20AE9C8100DEA118 /* Build configuration list for PBXNativeTarget "LazyLoading" */;
 			buildPhases = (
+				27C7BFEB6E78504CCEF3F057 /* [CP] Check Pods Manifest.lock */,
 				480433C020AE9C8000DEA118 /* Sources */,
 				480433C120AE9C8000DEA118 /* Frameworks */,
 				480433C220AE9C8000DEA118 /* Resources */,
+				EBC3D5B97FD10D1959B37706 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +276,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 480433EF20AE9C8100DEA118 /* Build configuration list for PBXNativeTarget "LazyLoadingTests" */;
 			buildPhases = (
+				CD3ACD835CB7DF4D9F84C7C4 /* [CP] Check Pods Manifest.lock */,
 				480433D420AE9C8100DEA118 /* Sources */,
 				480433D520AE9C8100DEA118 /* Frameworks */,
 				480433D620AE9C8100DEA118 /* Resources */,
@@ -167,6 +295,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 480433F220AE9C8100DEA118 /* Build configuration list for PBXNativeTarget "LazyLoadingUITests" */;
 			buildPhases = (
+				43C138E5940C9D5B873AB3B8 /* [CP] Check Pods Manifest.lock */,
 				480433DF20AE9C8100DEA118 /* Sources */,
 				480433E020AE9C8100DEA118 /* Frameworks */,
 				480433E120AE9C8100DEA118 /* Resources */,
@@ -193,6 +322,7 @@
 				TargetAttributes = {
 					480433C320AE9C8000DEA118 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 					};
 					480433D720AE9C8100DEA118 = {
 						CreatedOnToolsVersion = 9.3;
@@ -251,11 +381,88 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		27C7BFEB6E78504CCEF3F057 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LazyLoading-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		43C138E5940C9D5B873AB3B8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LazyLoadingUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD3ACD835CB7DF4D9F84C7C4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LazyLoadingTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EBC3D5B97FD10D1959B37706 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LazyLoading/Pods-LazyLoading-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LazyLoading/Pods-LazyLoading-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		480433C020AE9C8000DEA118 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				480433F820AE9F7A00DEA118 /* UIScrollView+BottomRefreshControl.m in Sources */,
+				480433FB20AE9F8900DEA118 /* UIView+TKGeometry.m in Sources */,
 				480433CA20AE9C8000DEA118 /* ViewController.swift in Sources */,
 				480433C820AE9C8000DEA118 /* AppDelegate.swift in Sources */,
 			);
@@ -428,16 +635,21 @@
 		};
 		480433ED20AE9C8100DEA118 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE4F4C86C1603C30B325418E /* Pods-LazyLoading.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LazyLoading/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SourceLead.LazyLoading;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LazyLoading/LazyLoading-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -445,16 +657,20 @@
 		};
 		480433EE20AE9C8100DEA118 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2B01E6CBE023269A0CBA463 /* Pods-LazyLoading.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LazyLoading/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SourceLead.LazyLoading;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LazyLoading/LazyLoading-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -462,6 +678,7 @@
 		};
 		480433F020AE9C8100DEA118 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B082B7B6A8770789007296C4 /* Pods-LazyLoadingTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -482,6 +699,7 @@
 		};
 		480433F120AE9C8100DEA118 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82A166ABA642505095BF3678 /* Pods-LazyLoadingTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -502,6 +720,7 @@
 		};
 		480433F320AE9C8100DEA118 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78239CBBDF9E2AC4E86E5BEE /* Pods-LazyLoadingUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -521,6 +740,7 @@
 		};
 		480433F420AE9C8100DEA118 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D462534F3574D88D2FEAC34B /* Pods-LazyLoadingUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
